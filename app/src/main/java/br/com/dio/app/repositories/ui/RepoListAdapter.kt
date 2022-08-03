@@ -1,6 +1,7 @@
 package br.com.dio.app.repositories.ui
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -10,6 +11,8 @@ import br.com.dio.app.repositories.databinding.ItemRepoBinding
 import com.bumptech.glide.Glide
 
 class RepoListAdapter : ListAdapter<Repo, RepoListAdapter.ViewHolder>(DiffCallback()) {
+
+    var onClick: (Repo) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -33,6 +36,10 @@ class RepoListAdapter : ListAdapter<Repo, RepoListAdapter.ViewHolder>(DiffCallba
 
             Glide.with(binding.root.context)
                 .load(item.owner.avatarURL).into(binding.ivOwner)
+
+            binding.cdRepositorio.setOnClickListener{
+                onClick(item)
+            }
         }
     }
 }

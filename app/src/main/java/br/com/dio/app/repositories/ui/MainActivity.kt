@@ -1,5 +1,6 @@
 package br.com.dio.app.repositories.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -9,6 +10,7 @@ import br.com.dio.app.repositories.R
 import br.com.dio.app.repositories.core.createDialog
 import br.com.dio.app.repositories.core.createProgressDialog
 import br.com.dio.app.repositories.core.hideSoftKeyboard
+import br.com.dio.app.repositories.data.model.Repo
 import br.com.dio.app.repositories.databinding.ActivityMainBinding
 import br.com.dio.app.repositories.presentation.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -39,8 +41,24 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                 is MainViewModel.State.Success -> {
                     dialog.dismiss()
                     adapter.submitList(it.list)
+
                 }
             }
+        }
+        insertListeners()
+
+    }
+
+    private fun insertListeners() {
+        adapter.onClick= {
+
+
+         val intent = Intent(this, DetailCommitActivity::class.java)
+          intent.putExtra("USER",it.owner.login)
+          intent.putExtra("REPOSITORIO",it.name)
+          intent.putExtra("LINK",it.htmlURL)
+
+          startActivity(intent)
         }
     }
 

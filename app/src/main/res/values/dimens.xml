@@ -3,4 +3,7 @@
     <dimen name="layout_half_padding">8dp</dimen>
     <dimen name="layout_padding">16dp</dimen>
     <dimen name="layout_extra_padding">32dp</dimen>
+    <dimen name="margin_item">16dp</dimen>
+    <dimen name="margin_default">16dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
 </resources>
