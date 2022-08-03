@@ -3,4 +3,5 @@
     <string name="app_detail">Detail Commit</string>
     <string name="action_search">Pesquisar</string>
     <string name="fechar_detail">Fecha detalhes commit</string>
+    <string name="fechar_activity">Fecha listagem de commits</string>
 </resources>

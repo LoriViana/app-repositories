@@ -10,6 +10,7 @@ import br.com.dio.app.repositories.data.services.GitHubCommitService
 import br.com.dio.app.repositories.databinding.ActivityDetailCommitBinding
 import br.com.dio.app.repositories.presentation.DetailCommitViewModel
 import br.com.dio.app.repositories.presentation.di.DetailCommitViewModelFactory
+import com.bumptech.glide.Glide
 
 
 class DetailCommitActivity : AppCompatActivity() {
@@ -49,16 +50,17 @@ class DetailCommitActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-
-
       viewModel.itemList.observe(this, Observer{
             Log.d("TAG","onCreate: $it")
          adapter.setDetailCommit(it)
+          binding.tvlogin.text = it.get(1).author.login
+          var imagem= it.get(1).author.avatar_url
 
-
-      //    binding.tvlogin.text =
+          Glide.with(this).load(imagem).circleCrop().into(binding.ivUser)
         })
-
+        binding.btnVoltar.setOnClickListener{
+            finish()
+        }
         viewModel.errorMessage.observe(this, Observer{
 
             Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
@@ -69,6 +71,7 @@ class DetailCommitActivity : AppCompatActivity() {
         super.onResume()
 
         viewModel.getAllCommits()
+
 
     }
 

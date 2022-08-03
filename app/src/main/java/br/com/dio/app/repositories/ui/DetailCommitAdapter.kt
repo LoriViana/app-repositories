@@ -37,12 +37,19 @@ class DetailCommitAdapter :  RecyclerView.Adapter<MainViewHolder>(){
 
  class MainViewHolder(val binding: ItemCommitMessageBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(detailCommit: DetailCommit){
+            var data= detailCommit.commit.author.date
             binding.tvCommit.text = detailCommit.commit.message
-            binding.tvDescricao.text = detailCommit.commit.author.date
+            binding.tvDescricao.text = "Commit realizado em : $data"
+
         }
 
 
+
+
  }
+
+
+
 
 //    fun bind(live: Live, onItemClicked: (Live) -> Unit) {
 //

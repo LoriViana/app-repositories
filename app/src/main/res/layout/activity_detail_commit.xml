@@ -9,19 +9,81 @@
     tools:context=".ui.DetailCommitActivity">
 
 
+    <ImageView
+        android:id="@+id/img_header"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher_background_repo_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_user"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:contentDescription="Imagens do responsavel pelo commit"
+        app:layout_constraintBottom_toBottomOf="@+id/img_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/img_header"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.525"
+        tools:srcCompat="@tools:sample/avatars" />
+
+
+    <ImageButton
+        android:id="@+id/btn_voltar"
+        style="@android:style/Widget.Button"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="?attr/actionBarItemBackground"
+        android:contentDescription="@string/fechar_activity"
+        android:src="@drawable/ic_arrow_back_white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/img_header"
+        app:layout_constraintEnd_toEndOf="@+id/iv_user"
+        app:layout_constraintStart_toStartOf="@+id/iv_user"
+        app:layout_constraintTop_toBottomOf="@+id/iv_user"
+        tools:text="LOGIN" />
+
+    <TextView
+        android:id="@+id/tvdescricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="15sp"
+
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_header"
+        android:text="COMMITS"
+        tools:text="COMMITS" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_detailcommit"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toBottomOf="@id/tvdescricao"
         tools:listitem="@layout/item_commit_message" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
